@@ -68,9 +68,9 @@ def sunHandler(evt) {
 	}
     
 	for (bulb in bulbs) {
-    	def hue = bulb.currentValue("hue").intValue()
-    	def sat = bulb.currentValue("saturation").intValue()
-    	def bri = bulb.currentValue("level").intValue()
+    	def hue = bulb.currentValue("hue") ?: 0 
+    	def sat = bulb.currentValue("saturation") ?: 0 
+    	def bri = bulb.currentValue("level") ?: 0
     
 //  log.debug "1 $bulb current $hue vs ${hsb.h} : $sat vs ${hsb.s} : $bri vs ${hsb.b} [$ison]"
 		if(bulb.currentValue("switch") == "on" && (hue != hsb.h || sat != hsb.s || bri != hsb.b)) { 
